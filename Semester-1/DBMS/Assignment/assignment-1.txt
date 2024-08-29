@@ -1,0 +1,51 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+S table
+----------------------------------------------------------------------------------------------------------------------------------------
+Create  table :- CREATE TABLE s ( sno char(3) PRIMARY KEY,sname varchar(50),s_status int,s_city varchar(25));
+
+insert data :-  INSERT INTO s VALUES('s1','smith',20,'London');
+		INSERT INTO s VALUES('s2','jones',10,'Paris');
+		INSERT INTO s VALUES('s3','Black',10,'Paris');
+		INSERT INTO s VALUES('s4','clark',20,'London');
+		INSERT INTO s VALUES('s5','Adams',30,'Athems');
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------------------------------------------------------------------------------------------------------
+P table
+----------------------------------------------------------------------------------------------------------------------------------------
+create table :- CREATE TABLE p (pno char(3) PRIMARY KEY,pname varchar(20),color varchar(10),weight float(5,2), p_city varchar(25));
+
+insert data :-  INSERT INTO p VALUES('p1','mut','red',10.2,'London');
+		INSERT INTO p VALUES('p2','bolt','green',17.0,'Paris');
+		INSERT INTO p VALUES('p3','screw','blue',17.0,'Osio');
+		INSERT INTO p VALUES('p4','screw','red',14.0,'London');
+		INSERT INTO p VALUES('p5','cam','blue',12.0,'Paris');
+		INSERT INTO p VALUES('p6','cg','red',19.0,'London');
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+----------------------------------------------------------------------------------------------------------------------------------------
+SP table
+----------------------------------------------------------------------------------------------------------------------------------------
+
+create table :- CREATE TABLE sp ( sno char(3), pno char(3), qty int, FOREIGN KEY (sno) REFERENCES s (sno), FOREIGN KEY (pno) REFERENCES p (pno));
+
+insert data :-  INSERT INTO sp VALUES('s1','p1',300);
+		INSERT INTO sp VALUES('s1','p2',200);
+		INSERT INTO sp VALUES('s1','p3',400);
+		INSERT INTO sp VALUES('s1','p4',200);
+		INSERT INTO sp VALUES('s1','p5',100);
+		INSERT INTO sp VALUES('s1','p6',100);
+		INSERT INTO sp VALUES('s2','p1',300);
+		INSERT INTO sp VALUES('s3','p2',200);
+		INSERT INTO sp VALUES('s4','p2',200);
+		INSERT INTO sp VALUES('s4','p4',300);
+		INSERT INTO sp VALUES('s4','p5',400);
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1) show all parts located at London city
+=> SELECT * FROM sp WHERE p_city = 'London';
+----------------------------------------------------------------------------------------------------------------------------------------
+2)show maximum  weight part name
+=>
